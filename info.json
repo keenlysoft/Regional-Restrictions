@@ -1,0 +1,9 @@
+{
+  "title": "地域限制",
+  "name": "restrict",
+  "ps": "地域限制-本插件只支持NGINX，依赖腾讯地图定位api需要自己申请。支持重定向。",
+  "versions": "1.1",
+  "checks": "/www/server/panel/plugin/restrict",
+  "author": "zhu",
+  "home": "https://www.bt.cn"
+}

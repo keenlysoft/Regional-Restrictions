@@ -1,0 +1,554 @@
+<style>
+.tasklist{
+	padding-left: 0;
+	padding-top: 0;
+}
+.tab-con{
+	margin-left: 15px;
+}
+.tab-con .SetDns{
+	overflow: hidden;
+}
+.tab-con .clearfixDns>p{
+	float: left;
+    margin-top: 35px;
+    margin-left: 25px;
+}
+.tab-con .clearfixDns>p button{
+	margin-right: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.tab-con .SetDns .SetAggregateOne p{
+	margin-top: 15px;
+}
+.tab-con .SetDns .SetAggregateOne p span{
+	margin-right:15px;
+    display: inline-block;
+    width: 51px;
+    text-align: right;
+}
+.tab-con .SetDns .SetAggregateOne p input{
+	height: 30px;
+	width: 240px;
+	padding-left: 10px;
+	font-size: 13px;
+}
+.tab-con .SetDns .SetAggregateOne{
+	width: 325px;
+	float: left;
+}
+
+.tab-con .SetZone .Setshow{
+	margin: 15px 0;
+	font-size: 14px;
+}
+.tab-con .SetZone .Setshow span{
+	margin-right: 5px;
+	font-size: 14px;
+}
+.tab-con .SetZont .SetTime button{
+	margin-top: -5px;
+	margin-right: 15px;
+	padding-left: 18px;
+	padding-right: 18px;
+	margin-left: 20px;
+}
+.tab-con .SetZone .SetTime{
+	margin-left: 20px;
+	margin-bottom: 20px;
+	margin: 0 10px 20px 0px;
+}
+.tab-con .SetZone .SetTime select{
+	height: 30px;
+	font-size: 14px;
+}
+
+.tab-con .SetTime span{
+	margin-right: 10px;
+}
+.tab-con .clearfixSwap>p{
+	clear: both;
+    margin-top: 15px;
+    margin-bottom: 17px;
+}
+.tab-con .clearfixSwap>p span{
+	margin-right: 15px;
+}
+.tab-con .clearfixSwap>p input{
+	height: 30px;
+    width: 130px;
+	padding-left: 10px;
+	margin-left: 10px;
+	font-size: 13px;
+}
+.tab-con .clearfixSwap>p button,
+.tab-con .SetTime button{
+	margin-top: -5px;
+	margin-right: 15px;
+	padding-left: 18px;
+	padding-right: 18px;
+	margin-left: 20px;
+}
+.tab-con .SetSwap .SetAggregateTwo{
+	overflow: hidden;
+    margin-top: 14px;
+	margin-bottom:20px;
+}
+.tab-con .SetSwap .SetAggregateTwo p{
+    float: left;
+	margin-right:50px;
+}
+.tab-con .SetSwap .SetAggregateTwo size{
+	font-size:14px;
+}
+.tab-con .SetSwap .SetAggregateTwo span{
+	margin-right: 10px;
+}
+.tab-con .SetDns .clearfixDns{
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+.tasklist .tab-nav{
+	background-color: #F0F0F1;
+    width: 125px;
+    height: 550px;
+    float: left;
+}
+.tasklist .tab-nav span{
+	display: block;
+	width: 125px;
+	padding-right:0 ;
+	height: 40px;
+	line-height: 40px; 
+	padding-left: 20px; 
+	position: relative; 
+	cursor: pointer;
+	border:none;
+	background: #F0F0F1;
+}
+.tasklist .tab-nav span.on{
+	background-color:#fff ;
+}
+</style>
+<div class="tasklist">
+	<div class="tab-nav">
+		<span class="on">配置中心</span>
+		<span class="">地域添加</span>
+		<span class="">地域列表</span>
+		<span class="">301添加</span>
+	</div>
+	<div class="tab-con">
+		<div id="config" class="SetZone" style="display:block;">
+			<div class="clearfixDns">
+				<div class="SetAggregateOne">
+					<p><span>腾讯API:&nbsp;</span><input class="bt-input-text" name="txapi" type="text" value=""  style="width:280px"/></p>
+					<BR/>
+					<p>
+					<span>默认状态:&nbsp;</span>
+					<select id="webstatus" class="bt-input-text mr5 "  name="webstatus" style="width:160px">
+							<option value="400">400</option>
+							<option value="401">401</option>
+							<option value="402">402</option>
+							<option value="403">403</option>
+							<option value="404">404</option>
+							<option value="500">500</option>
+							<option value="501">501</option>
+							<option value="502">502</option>
+							<option value="503">503</option>
+							<option value="504">504</option>
+					</select>
+					</p>
+				</div>
+			</div>
+			<BR/>
+			<p><button style="margin-left: 100px;" class="btn btn-default btn-sm btn-title" onclick="setconfig();">配置修改</button></p>
+			<ul class="help-info-text c7 mtb15">
+				<li>腾讯api 配额申请地址:<a href="https://lbs.qq.com/dev/console/quota/applyList" target="_blank">https://lbs.qq.com/dev/console/quota/applyList</a></li>
+				<li>请填写这样的密钥例如:OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77</li>
+				<li style="color:red">建议企业身份申请腾讯位置服务器</li>
+			</ul>
+			<!--  -->
+			<div class="clearfixDns">
+				<div class="SetAggregateOne">
+					<p><span>地址:&nbsp;</span><input class="bt-input-text" name="ip" type="text" value="" /></p>
+					<p><span>密码:&nbsp;</span><input class="bt-input-text" name="auth" type="text" value="" /></p>
+					<p><span>端口:&nbsp;</span><input class="bt-input-text" name="port" type="text" value="" /></p>
+				</div>
+			</div>
+			<BR/>
+			<p><button style="margin-left: 50px;" class="btn btn-default btn-sm btn-title" onclick="setRedis();">redis修改</button></p>
+			<ul class="help-info-text c7 mtb15">
+				<li>请输入redis帐号密码!</li>
+			</ul>
+			<!--  -->
+		</div>
+		<div id="citys" class="SetDns" style="display:  none;">
+			<div class="clearfixDns">
+				<div class="SetAggregateOne">
+					<div class="line ">
+						<span class="tname">选择网站:</span>
+						<div class="info-r ">
+							<select class="bt-input-text mr5 phpVersion" name="website" style="width:160px">
+							</select>
+						</div>
+						<span class="tname">选择省:</span>
+						<div class="info-r ">
+							<select id="provinces" class="bt-input-text mr5 provinces" onchange="getCity()" name="provinces" style="width:160px">
+							
+							</select>
+						</div>
+						<span class="tname">选择城市:</span>
+						<div class="info-r ">
+							<select id="city" class="bt-input-text mr5 phpVersion" name="city" style="width:160px">
+							<option selected="" value="00">城市</option>
+							</select>
+						</div>
+						<span class="tname">跳转地址:</span>
+						<div class="info-r ">
+							<input type="text" class="bt-input-text mr5" name="file">
+						</div>
+					</div>
+				</div>
+				<p><button class="btn btn-default btn-sm btn-title" onclick="SetLimitInfo();">保存</button></p>
+			</div>
+			<ul class="help-info-text c7 mtb15">
+				<li>适量增加,数据量越大效率越慢!</li>
+				<li>填写地域访问的网站地址.</li>
+				<li>*注意:尽量不要填写装了插件的服务器，避免重定向!</li>
+			</ul>
+		</div>
+		
+		
+		<div id="swap" class="SetSwap" style="display: none;">
+			<div class="plugin_body">
+				  <p class="SetTime">
+				  	<span>选择查看网站:</span>
+				    <select class="bt-input-text" id="weburl" name="weburl">
+				     
+				    </select>
+				  <input type="hidden" value="0" name = "web_idx" id="web_idx">
+				  <button  class="btn btn-default btn-sm btn-title" onclick="getAll()">搜索</button>
+				 </p>
+				<br>
+				<div class="divtable">
+				<table class="table table-hover"><thead><tr><th>域名</th><th>地域</th><th>操作</th></tr></thead>
+					<tbody>  
+					<tr>
+						<td id="cityname"></td>
+						<td id="citylist"></td>
+						<td>
+						<button class="btn btn-default btn-sm" id="del_city" onclick="del_city()">删除</button>
+						</td> 
+					</tr>
+					
+				</tbody>
+				</table>
+				</div><br>
+				
+				<ul class="help-info-text c7 mtb15">
+					<li>按单个网址搜索进行查看,不支持修改，请删除后添加</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 301 -->
+		<div id="301" class="SetDns" style="display: none;">
+			<div class="clearfixDns">
+				<div class="SetAggregateOne">
+					<div class="line ">
+						<p class="SetTime">
+					  		<span>网站:</span>
+					    	<select class="bt-input-text" id="web301" name="web301">
+					     
+					    	</select>
+						    <input type="hidden" value="0" name = "web_idx" id="web_idx">
+						    <button  class="btn btn-default btn-sm btn-title" onclick="get301()">搜索</button>
+						 </p>
+						 <br/>
+						<span class="tname">301重定向:</span>
+						<div class="info-r ">
+							<input type="text" class="bt-input-text mr5" name="url301">
+						</div>
+					</div>
+				</div>
+				<p><button class="btn btn-default btn-sm btn-title" onclick="set301();">保存</button>
+				<button id="del301" style="display: none;" class="btn btn-default btn-sm " onclick="del301();">刪除</button></p>
+			</div>
+			<ul class="help-info-text c7 mtb15">
+				<li>1、301重定向:不能使用bt自带的301插件否则不生效</li>
+				<li>2、填写访问的网站地址.必须带http:// or https://</li>
+				<li>3、操作说明:点击搜索后可以看到填写后的重定向网址,直接修改后保存。</li>
+			</ul>
+		</div>
+		
+		
+		
+		
+		
+	</div>
+</div>
+<script type="javascript/text">
+	getconfig();
+	GetRedis();
+	$(".tab-nav span").click(function(){
+		var i = $(this).index();
+		$(this).addClass("on").siblings().removeClass("on");
+		$(".tab-con > div").hide().eq(i).show();
+		switch(i){
+			case 0:
+				getconfig();
+				GetRedis();
+				break;
+			case 1:
+				
+				break;
+			case 2:
+				getAll()
+				break;
+			case 3:
+				
+				break;
+			case 4:
+
+				break;
+			case 5:
+
+				break;
+		}
+	});
+	
+	mainAd = null;
+	
+	function closeF(){
+		layer.close(mainAd);
+	}
+	
+	//start 网站列表
+	var website = $("select[name='website']").val();
+	
+	$.post('/plugin?action=a&name=restrict&s=webList','',function(rdata){
+		    var opstr = '<option value="0">全部</option>';
+		    $.each(rdata, function(name,value) {
+				opstr += '<option value="'+value.name+'">'+value.name+'</option>';
+		    });
+			$("select[name='website']").html(opstr);
+	 },'json');
+	$.post('/plugin?action=a&name=restrict&s=webList','',function(rdata){
+		    var opstr = '<option value="0">全部</option>';
+		    $.each(rdata, function(name,value) {
+				opstr += '<option value="'+value.name+'">'+value.name+'</option>';
+		    });
+			$("select[name='weburl']").html(opstr);
+	 },'json');
+	$.post('/plugin?action=a&name=restrict&s=webList','',function(rdata){
+		    var opstr = '<option value="0">设置或者搜索</option>';
+		    $.each(rdata, function(name,value) {
+				opstr += '<option value="'+value.name+'">'+value.name+'</option>';
+		    });
+			$("select[name='web301']").html(opstr);
+	 },'json');
+	
+	pr = ''
+	$.post('/plugin?action=a&name=restrict&s=provinces','',function(data){
+			console.log(data)
+			pr = '<option value="0">选择省份</option>';
+		    $.each(data, function(name,value) {
+				pr += '<option value="'+value.id+'">'+value.name+'</option>';
+		    });
+			$("select[name='provinces']").html(pr);
+	 },'json');
+
+	function getCity()
+	{
+		var pid = $("select[name='provinces']").val();
+		data = "pid="+pid;
+		$.post('/plugin?action=a&name=restrict&s=getCity',data,function(data){
+			console.log(data)
+			$("#city").html('');
+			var city = '<option value="00">包含以下所有</option>';
+		    $.each(data, function(name,value) {
+				city += '<option value="'+value.id+'">'+value.name+'</option>';
+		    });
+			$("select[name='city']").html(city);
+	 },'json');
+	}
+	
+	//设置
+	function SetLimitInfo()
+	{
+		var pdata =  "website="+$("select[name='website']").val()+"&provinces="+$("select[name='provinces']").val()+"&city="+$("select[name='city']").val()+"&file="+$("input[name='file']").val()+"&provincesname="+$("#provinces option:selected").text()+"&cityname="+$("#city option:selected").text();
+		$.post('/plugin?action=a&name=restrict&s=SetLimitInfo',pdata,function(data){
+			layer.msg(data.msg,{icon:data.status?1:5});
+	 },'json');
+	}
+	
+
+	function getAll(){
+			$('#citylist').html('');
+			$('#cityname').html('');
+			pdata = "weburl="+$("#weburl option:selected").val();
+			$.post('/plugin?action=a&name=restrict&s=getweball',pdata,function(data){
+				$('#citylist').html(data.list);
+				$('#cityname').html(data.name);
+				$("input[name='web_idx']").val(data.idx);
+				if(!data.list)
+				{
+					$('#citylist').html('暂无');
+					$('#cityname').html('暂无');
+					$("#del_city").hide();
+				}else{
+					$("#del_city").show();
+				}
+	 		},'json');
+	}
+
+
+	function del_city()
+	{
+			$('#citylist').html('');
+			$('#cityname').html('');
+			var pdata =  "web_idx="+$("input[name='web_idx']").val();
+		    $.post('/plugin?action=a&name=restrict&s=delweb',pdata,function(data){
+			layer.msg(data.msg,{icon:data.status?1:5});
+	 		},'json');              
+	}
+
+	function GetRedis()
+	{
+		$.post('/plugin?action=a&name=restrict&s=getRedis','',function(rdata){
+		    $("input[name='ip']").val(rdata.host);
+			$("input[name='auth']").val(rdata.auth);
+			$("input[name='port']").val(rdata.port);
+	 },'json');
+	}
+	function setRedis()
+	{
+		var pdata =  "host="+$("input[name='ip']").val()+"&port="+$("input[name='port']").val()+"&auth="+$("input[name='auth']").val();
+		$.post('/plugin?action=a&name=restrict&s=setRedis',pdata,function(rdata){
+		    if(rdata.host){
+				$("input[name='ip']").val(rdata.host);
+				$("input[name='auth']").val(rdata.auth);
+				$("input[name='port']").val(rdata.port);
+			}
+			layer.msg(rdata.msg,{icon:rdata.host?1:5});
+	 },'json');
+
+
+	}
+
+	function get301()
+	{
+		pdata = "web301="+$("#web301 option:selected").val();
+		if($("#web301 option:selected").val() == 0)
+		{
+			layer.msg('请选择网站',{icon:5});return;
+		}
+		$.post('/plugin?action=a&name=restrict&s=get301',pdata,function(rdata){
+		    
+				$("input[name='url301']").val(rdata.url);
+				if(rdata.url)
+				{
+					$("#del301").show();
+				}else{
+					$("#del301").hide();
+				}
+			rdata.msg?layer.msg(rdata.msg,{icon:rdata.url?1:5}):'';
+	 },'json');
+
+	}
+	
+	function del301()
+	{
+		pdata = "web301="+$("#web301 option:selected").val();
+		if($("#web301 option:selected").val() == 0)
+		{
+			layer.msg('请选择网站',{icon:5});return;
+		}
+		$.post('/plugin?action=a&name=restrict&s=del301',pdata,function(rdata){
+		    
+				$("input[name='url301']").val(rdata.url);
+			
+			rdata.msg?layer.msg(rdata.msg,{icon:rdata.url?1:5}):'';
+	 },'json');	
+		
+	}
+
+	
+
+	function set301()
+	{
+		var url = $("input[name='url301']").val();
+		pdata   = "web301="+$("#web301 option:selected").val()+"&url="+url;
+		if(!checkUrl(url))
+		{
+			layer.msg('网址错误',{icon:5});return;
+		}
+		$.post('/plugin?action=a&name=restrict&s=set301',pdata,function(rdata){
+		    if(rdata.host){
+				$("input[name='url301']").val(rdata.url);
+			}
+			rdata.msg?layer.msg(rdata.msg,{icon:rdata.url?1:5}):'';
+	 },'json');
+
+	}
+
+
+	
+	function checkUrl(url) {
+    	var strReg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;
+    	var re = new RegExp(strReg);
+    	if(!re.test(url)) {
+        	return false;
+    	} else {
+        	return true;
+    	}
+	}
+
+	function setconfig()
+	{
+		pdata = "webstatus="+$("#webstatus option:selected").val()+"&txapi="+$("input[name='txapi']").val();
+		$.post('/plugin?action=a&name=restrict&s=setconfig',pdata,function(rdata){
+			$("input[name='txapi']").val(rdata.txapi);
+			
+			rdata.msg?layer.msg(rdata.msg,{icon:rdata.status?1:5}):'';
+	 },'json');
+	}
+	
+	function getconfig()
+	{
+		$.post('/plugin?action=a&name=restrict&s=getconfig','',function(rdata){
+			$("input[name='txapi']").val(rdata.txapi);
+			$("#webstatus").val(rdata.webstatus);
+	 	},'json');
+	}
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
